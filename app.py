@@ -1,23 +1,17 @@
-import streamlit as st
-import pandas as pd
+import streamlit as st 
+from streamlit import components
 import plotly.express as px
+ 
+st.set_page_config(page_title="Portifolio")
 
-st.set_page_config(layout="wide")
 
-
-df_reviews = pd.read_csv("D:\ASIMOV\datasets\customer reviews.csv")
-df_top100_books = pd.read_csv("D:\ASIMOV\datasets\Top-100 Trending Books.csv")
-
-price_max = df_top100_books["book price"].max()
-price_min = df_top100_books["book price"].min()
-
-max_price = st.sidebar.slider("Price Ranger", price_min, price_max, price_max)
-df_books = df_top100_books[df_top100_books["book price"] <= max_price]
-df_books
-
-fig = px.bar(df_books["year of publication"].value_counts())
-fig2 = px.histogram(df_books["book price"])
-
-col1, col2 = st.columns(2)
-col1.plotly_chart(fig)
-col2.plotly_chart(fig2)
+with st.container():
+    st.subheader("Meu primeiro site com o streamlit")
+    st.title("Dashboard")
+    st.write("Informações sobre as eleições")
+    st.write("Dashboard Eleições [Clique aqui](https://app.powerbi.com/reportEmbed?reportId=27816bbc-2039-47f7-bf96-44f0d09ea2a6&autoAuth=true&ctid=0d5d7d7a-b007-411f-9929-2091d2189c64)")
+    
+with st.container():
+    st.write("---")
+    
+    
