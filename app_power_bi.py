@@ -1,5 +1,13 @@
 import streamlit as st 
 from streamlit import components
+import streamlit as st
+import streamlit_authenticator as stauth
+
+# Autenticação do usuário
+credentials_file = 'credentials.yaml'  # Substitua pelo caminho do seu arquivo YAML
+if not stauth.authenticate(credentials_file):
+    st.stop()
+
  
 st.set_page_config(page_title="Portifolio")
 
