@@ -1,6 +1,5 @@
 import streamlit as st 
 from streamlit import components
-import plotly.express as px
  
 st.set_page_config(page_title="Portifolio")
 
